@@ -41,7 +41,11 @@ nano target.h
                                        // CW270_DEG : rotated 270 degrees clockwise
 
 Make your changes (pin mapping, features, etc.)
-Exit: Ctrl+X, then Y, then Enter
+Save: Ctrl+O , then Enter, or Ctrl+S
+Exit: Ctrl+X
+
+# Return to INAV root
+cd /mnt/c/inav
 
 STEP 4: Configure build with CMake
 
@@ -49,10 +53,10 @@ STEP 4: Configure build with CMake
 mkdir build
 cd build
 
-# Configure CMake with ARM toolchain
+# Configure CMake with ARM toolchain (this step may take a long time)
 cmake -DTOOLCHAIN=arm-none-eabi ..
 
-STEP 5: Compile only your target
+STEP 5: Compile only your target This step can take a long time depending on your PC (up to 1 hour in my case).
 
 cmake --build . --target AXISFLYINGF7PRO
 
