@@ -1,1 +1,63 @@
-as
+This build is intended for the YSDIO F722 board.
+This board is compatible with the AXISFLYINGF7PRO firmware; however, the drawback is that the gyroscope is configured with a 90° rotation, which does not match the physical orientation of the flight controller (FC).
+
+As a result, the axis readings will be incorrect, negatively affecting the drone’s control.
+Below are the steps required to correct the gyroscope orientation so that it matches the actual orientation of the FC.
+
+STEP 1: Install necessary tools in WSL (only for Windows)
+
+sudo apt update
+sudo apt install git cmake ninja-build gcc-arm-none-eabi build-essential
+
+STEP 2: Download INAV source code
+
+# Go to C: drive
+cd /mnt/c/
+
+# Clone INAV repository from GitHub “Download the correct INAV version.”
+git clone https://github.com/iNavFlight/inav.git
+
+# Enter INAV folder
+cd inav
+
+STEP 3: Modify the target
+
+# View available targets
+ls src/main/target/
+
+# Enter the target you want to modify
+cd src/main/target/AXISFLYINGF7PRO
+
+# Edit the configuration
+nano target.h
+
+#Go to line 52 and change:
+#define IMU_MPU6000_ALIGN   CW0_DEG   // Depends on how the sensor is oriented in my case I choose (CW90_DEG) .
+                                      // Possible values:
+                                      // CW0_DEG   : no rotation
+                                      // CW90_DEG  : rotated 90 degrees clockwise
+                                      // CW180_DEG : rotated 180 degrees
+                                      // CW270_DEG : rotated 270 degrees clockwise
+
+Make your changes (pin mapping, features, etc.)
+Exit: Ctrl+X, then Y, then Enter
+
+STEP 4: Configure build with CMake
+
+# Create build folder
+mkdir build
+cd build
+
+# Configure CMake with ARM toolchain
+cmake -DTOOLCHAIN=arm-none-eabi ..
+
+STEP 5: Compile only your target
+
+cmake --build . --target AXISFLYINGF7PRO
+
+STEP 6: Find the compiled firmware
+
+# Search for the generated .hex file
+find . -name "*AXISFLYINGF7PRO*.hex"
+
+“STEP 7: Upload the new INAV HEX file”
