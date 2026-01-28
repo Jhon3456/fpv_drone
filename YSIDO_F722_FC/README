@@ -4,7 +4,6 @@ which does not match the physical orientation of (FC).
 
 As a result, the axis readings will be incorrect, negatively affecting the drone’s control.
 
-The following steps describe how to correct the gyroscope orientation so that it matches the actual orientation of the FC. 
 This process was carried out by installing Ubuntu on Windows (using a Linux environment) and performing the build and configuration from there.
 
 The following steps describe how to modify the flight controller (FC) according to the desired configuration or 
