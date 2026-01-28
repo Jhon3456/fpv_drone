@@ -1,7 +1,12 @@
 This build is intended for the YSDIO F722 board.
-This board is compatible with the AXISFLYINGF7PRO firmware; however, the drawback is that the gyroscope is configured with a 0° rotation, which does not match the physical orientation of the flight controller (FC).
+This board is compatible with the AXISFLYINGF7PRO firmware; however, the drawback is that the gyroscope is configured with a 0° rotation, 
+which does not match the physical orientation of (FC).
 
 As a result, the axis readings will be incorrect, negatively affecting the drone’s control.
+
+The following steps describe how to correct the gyroscope orientation so that it matches the actual orientation of the FC. 
+This process was carried out by installing Ubuntu on Windows (using a Linux environment) and performing the build and configuration from there.
+
 Below are the steps required to correct the gyroscope orientation so that it matches the actual orientation of the FC.
 
 STEP 1: Install necessary tools in WSL (only for Windows)
