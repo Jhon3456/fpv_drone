@@ -31,13 +31,14 @@ cd src/main/target/AXISFLYINGF7PRO
 # Edit the configuration
 nano target.h
 
-#Go to line 52 and change:
-#define IMU_MPU6000_ALIGN   CW0_DEG   // Depends on how the sensor is oriented in my case I choose (CW90_DEG) .
-                                      // Possible values:
-                                      // CW0_DEG   : no rotation
-                                      // CW90_DEG  : rotated 90 degrees clockwise
-                                      // CW180_DEG : rotated 180 degrees
-                                      // CW270_DEG : rotated 270 degrees clockwise
+//Go to line 57 and change this depending on the sensor used on the FC:
+#define IMU_ICM42605_ALIGN   CW0_DEG    // Depends on how the sensor is physically oriented.
+                                       // In my case, I chose CW90_DEG.
+                                       // Possible values:
+                                       // CW0_DEG   : no rotation
+                                       // CW90_DEG  : rotated 90 degrees clockwise
+                                       // CW180_DEG : rotated 180 degrees
+                                       // CW270_DEG : rotated 270 degrees clockwise
 
 Make your changes (pin mapping, features, etc.)
 Exit: Ctrl+X, then Y, then Enter
