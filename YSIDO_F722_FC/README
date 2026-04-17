@@ -9,7 +9,7 @@ This process was carried out by installing Ubuntu on Windows (using a Linux envi
 The following steps describe how to modify the flight controller (FC) according to the desired configuration or 
 the specific parameters that need to be changed.
 
-Or you can use fimware JHEMCUF722 for inav to fix the problem
+Or you can use fimware JHEMCUF722 for inav to fix the problem and change sda and scl pins
 
 STEP 1: Install necessary tools in WSL (only for Windows)
 
